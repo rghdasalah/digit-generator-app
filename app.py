@@ -20,7 +20,8 @@ from generator_model import Generator
 @st.cache_resource
 def load_model():
     model = Generator()
-    model.load_state_dict(torch.load("generator.pth", map_location="cpu"))
+    #model.load_state_dict(torch.load("generator.pth", map_location="cpu"))
+    model = torch.load("generator.pth", map_location="cpu", weights_only=False)
     model.eval()
     return model
 
